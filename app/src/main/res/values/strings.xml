@@ -5,5 +5,9 @@
     <string name="action_settings">Settings</string>
     <string name="text_nothing_added">You haven\'t added anything yet</string>
     <string name="title_add_todo_task">Add task</string>
+    <string name="title_activity_create_task">Create task</string>
+    <string name="title_task_title">Title</string>
+    <string name="create_task_done">Done</string>
+    <string name="no_title_no_task">No title, no task - Cancelling</string>
 
 </resources>
