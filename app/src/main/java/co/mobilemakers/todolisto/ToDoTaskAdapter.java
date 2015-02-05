@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.List;
@@ -27,12 +28,19 @@ public class ToDoTaskAdapter extends ArrayAdapter<ToDoTaskModel> {
         mToDoList = todoList;
     }
 
-    private void displayContentInRowView(int position, View rowView) {
+    private void displayContentInRowView(final int position, View rowView) {
         if (rowView != null) {
             TextView textTaskTitle = (TextView)rowView.findViewById(R.id.text_task_title);
             textTaskTitle.setText(mToDoList.get(position).getTitle());
             CheckBox checkTaskDone = (CheckBox)rowView.findViewById(R.id.checkbox_task);
             checkTaskDone.setChecked(mToDoList.get(position).getDone());
+
+            checkTaskDone.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    mToDoList.get(position).setDone(isChecked);
+                }
+            });
         }
     }
 
